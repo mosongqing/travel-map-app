@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arcgis Web Map</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/4.29/esri/themes/light/main.css">
+</head>
+<body>
+  <!-- 导航栏 -->
+  <nav class="glass-nav">
+    <div class="nav-container">
+      <a href="#" class="brand">
+        <img src="logo.png" alt="Logo" class="logo-icon">
+        <span class="brand-text">云游桂林</span>
+      </a>
+      
+      <div class="nav-menu">
+        <a href="#" class="nav-item active">
+          <span class="nav-icon">🏞️</span>
+          <span class="nav-text">桂景开篇</span>
+        </a>
+        <a href="#" class="nav-item">
+          <span class="nav-icon">📜</span>
+          <span class="nav-text">桂史寻踪</span>
+        </a>
+        <a href="#" class="nav-item">
+          <span class="nav-icon">👣</span>
+          <span class="nav-text">吾之桂行</span>
+        </a>
+      </div>
+  
+      <div class="user-panel">
+        <div class="avatar-wrapper">
+          <img src="avatar.jpg" alt="用户" class="profile-avatar">
+          <div class="online-dot"></div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- 侧边栏  -->  
+    <div class="control-knob" onclick="toggleSidebar()"></div>
+    <div class="knob-icon">⚙️</div>
+  </div>
+  
+  <div class="glass-sidebar">
+    <div class="sidebar-menu">
+      <a href="#" class="menu-item">
+        <span class="menu-icon">🗺️</span>
+        <span class="menu-text">行程规划</span>
+      </a>
+      <a href="#" class="menu-item">
+        <span class="menu-icon">💬</span>
+        <span class="menu-text">互动广场</span>
+      </a>
+      <a href="#" class="menu-item">
+        <span class="menu-icon">🚶</span>
+        <span class="menu-text">拥挤区域</span>
+      </a>
+      <a href="#" class="menu-item">
+        <span class="menu-icon">📍</span>
+        <span class="menu-text">地点打卡</span>
+      </a>
+      <a href="#" class="menu-item">
+        <span class="menu-icon">📚</span>
+        <span class="menu-text">文化知识库</span>
+      </a>
+    </div>
+  </div>
+
+  <div id="viewDiv"></div>
+  <script src="https://js.arcgis.com/4.29/"></script>
+  <script src="main.js"></script>
+</body>
+</html>

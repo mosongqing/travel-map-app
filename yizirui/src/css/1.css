@@ -1,0 +1,418 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: #f9f9f9;
+}
+
+/* 顶部导航栏 */
+.navbar {
+position: fixed;
+top: 0;
+width: 100%;
+background-color: rgba(51, 51, 51, 0.6);
+backdrop-filter: blur(10px);
+color: white;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 10px 20px;
+z-index: 1000;
+transition: top 0.3s ease;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* 阴影 */
+}
+
+.nav-links a {
+color: white;
+text-decoration: none;
+margin-right: 20px;
+font-weight: bold;
+cursor: pointer;
+display: inline-flex;
+align-items: center;
+gap: 6px;
+font-size: 16px;
+}
+
+.nav-links a:hover {
+text-decoration: underline;
+}
+
+/* 中间按钮 */
+.nav-toggle-wrapper {
+  margin: 0 auto;
+}
+
+.nav-toggle-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  font-size: 22px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.nav-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+
+
+/* 左侧：logo 和导航按钮 */
+.left-nav {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 40px;
+  margin-right: 20px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  margin-right: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* 右侧头像 */
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin-left: -5px; /* 可微调头像位置 */
+}
+
+/* 内容容器 */
+.content {
+  padding-top: 80px;
+}
+
+.page {
+  display: none;             
+}
+
+.page.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.page::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.3); /* 半透明遮罩 */
+  z-index: 0;
+}
+.page > * {
+  position: relative;
+  z-index: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+登录 */
+/* 弹窗背景遮罩 */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+/* 登录弹窗容器 */
+.login-modal {
+  display: none;
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 40px;
+  width: 300px;
+  border-radius: 16px;
+  color: white;
+  text-shadow: 0 0 2px rgba(0,0,0,0.6);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  z-index: 1000;
+}
+
+.login-modal h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.login-modal input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255,255,255,0.2);
+  color: white;
+  outline: none;
+}
+
+.login-modal button {
+  width: 100%;
+  padding: 10px;
+  background-color: rgba(255,255,255,0.3);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.login-modal .links {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.login-modal .links a {
+  color: white;
+  text-decoration: none;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 30px;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 50%;
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 1001;
+}
+
+.close-btn:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: scale(1.1);
+}
+#avatarUpload {
+  margin: 10px 0;
+  color: white;
+}
+.user-area {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.user-area:hover + #user-menu,
+#user-menu:hover {
+  display: block;
+}
+
+.user-menu {
+  position: absolute;
+  top: 70px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+  font-size: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  min-width: 120px;
+}
+
+.user-menu .logout {
+  padding: 8px;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.user-menu .logout:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+
+
+
+
+
+
+
+
+
+
+/* 首页样式 */
+
+header {
+  text-align: center;
+  padding: 30px 20px;
+  background-color: #0077aa;
+  color: white;
+}
+
+.slider {
+  position: relative;
+  width: 98%;
+  max-width: 1400px;
+  height: 500px;
+  margin: 20px auto;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  border: 6px solid white;
+}
+
+.slide {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+  position: relative;
+}
+
+.intro-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 40px 20px;
+  gap: 30px;
+}
+
+.intro-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.intro-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.intro-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.intro-text {
+  padding: 20px;
+}
+
+.intro-text h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #0077aa;
+}
+
+@media screen and (max-width: 768px) {
+  .slider {
+    height: 300px;
+  }
+
+  .intro-card {
+    width: 90%;
+  }
+}
+
+
+
+
+.intro-card {
+cursor: pointer;
+transition: max-height 0.4s ease, box-shadow 0.3s ease;
+max-height: 320px;
+overflow: hidden;
+}
+
+.intro-card.expanded {
+max-height: 600px;
+box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+
+.more-text {
+display: none;
+margin-top: 10px;
+color: #444;
+}
+
+.intro-card.expanded .more-text {
+display: block;
+}
+
+
+
+/* 
+地图 */
+
+
+
+
+
+
+
+
+
+
+

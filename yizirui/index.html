@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>旅游网站</title>
+  <link rel="stylesheet" href="./src/css/1.css">
+  <link rel="stylesheet" href="../yizirui/src/css/3.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/4.29/esri/themes/light/main.css">
+</head>
+<body>
+  <!-- 导航栏 -->
+ 
+  <div class="navbar">
+    <!-- 左边 Logo + 导航 -->
+    <div class="left-nav">
+      <div class="logo">
+        <img src="../yizirui/src/image/logo.png" alt="Logo">
+      </div>
+      <div class="nav-links">
+        <a onclick="showPage('home')">🏠 首页</a>
+        <a onclick="showPage('map')">🗺 地图</a>
+        <a onclick="showPage('comment')">💬 攻略评论</a>
+      </div>
+      
+    </div>
+   
+
+   <!-- 右上角头像区域 -->
+<div id="user-area" class="user-area" title="点击登录" onclick="openLogin()">
+  <img id="user-avatar" src="https://unpkg.com/outeres@0.0.10/demo/avatar/1.jpg" class="avatar" alt="头像" />
+</div>
+
+<!-- 下拉菜单 -->
+<div id="user-menu" class="user-menu" style="display: none;">
+  <div class="user-info">
+    <span id="user-nickname"></span>
+  </div>
+  <div class="logout" onclick="logout()">退出登录</div>
+</div>
+
+  </div>
+
+  <!-- 内容区 -->
+  <div class="content">
+    <div id="home" class="page active">
+      <div class="slider">
+        <img src="https://picsum.photos/id/1018/1200/500" class="slide active" alt="风景1">
+        <img src="https://picsum.photos/id/1015/1200/500" class="slide" alt="风景2">
+        <img src="/粉蓝色国风山水画展海报（横版） (演示文稿).gif" class="slide" alt="风景3">
+      </div>
+    
+      <section class="intro-section">
+    
+        <div class="intro-card" onclick="toggleExpand(this)">
+          <img src="https://picsum.photos/id/1040/300/200" alt="风景介绍1">
+          <div class="intro-text">
+            <h2>高山流水</h2>
+            <p>群山连绵，溪水潺潺，仿佛走进一幅天然画卷。</p>
+            <div class="more-text">
+              <p>这片山水深处，有着千年古村和无人探访的小径，是徒步爱好者的天堂。</p>
+            </div>
+          </div>
+        </div>
+        <div class="intro-card" onclick="toggleExpand(this)">
+          <img src="https://picsum.photos/id/1040/300/200" alt="风景介绍1">
+          <div class="intro-text">
+            <h2>高山流水</h2>
+            <p>群山连绵，溪水潺潺，仿佛走进一幅天然画卷。</p>
+            <div class="more-text">
+              <p>这片山水深处，有着千年古村和无人探访的小径，是徒步爱好者的天堂。</p>
+            </div>
+          </div>
+        </div>
+        <div class="intro-card" onclick="toggleExpand(this)">
+          <img src="https://picsum.photos/id/1040/300/200" alt="风景介绍1">
+          <div class="intro-text">
+            <h2>高山流水</h2>
+            <p>群山连绵，溪水潺潺，仿佛走进一幅天然画卷。</p>
+            <div class="more-text">
+              <p>这片山水深处，有着千年古村和无人探访的小径，是徒步爱好者的天堂。</p>
+            </div>
+          </div>
+        </div>
+        <div class="intro-card" onclick="toggleExpand(this)">
+          <img src="https://picsum.photos/id/1040/300/200" alt="风景介绍1">
+          <div class="intro-text">
+            <h2>高山流水</h2>
+            <p>群山连绵，溪水潺潺，仿佛走进一幅天然画卷。</p>
+            <div class="more-text">
+              <p>这片山水深处，有着千年古村和无人探访的小径，是徒步爱好者的天堂。</p>
+            </div>
+          </div>
+        </div>
+        
+        
+        <div class="intro-card">
+          <img src="https://picsum.photos/id/1040/300/200" alt="风景介绍1">
+          <div class="intro-text">
+            <h2>高山流水</h2>
+            <p>群山连绵，溪水潺潺，仿佛走进一幅天然画卷。</p>
+          </div>
+        </div>
+        <div class="intro-card">
+            <img src="https://picsum.photos/id/1040/300/200" alt="风景介绍1">
+            <div class="intro-text">
+              <h2>高山流水</h2>
+              <p>群山连绵，溪水潺潺，仿佛走进一幅天然画卷。</p>
+            </div>
+          </div>
+          <div class="intro-card">
+            <img src="https://picsum.photos/id/1040/300/200" alt="风景介绍1">
+            <div class="intro-text">
+              <h2>高山流水</h2>
+              <p>群山连绵，溪水潺潺，仿佛走进一幅天然画卷。</p>
+            </div>
+          </div>
+          <div class="intro-card">
+            <img src="https://picsum.photos/id/1040/300/200" alt="风景介绍1">
+            <div class="intro-text">
+              <h2>高山流水</h2>
+              <p>群山连绵，溪水潺潺，仿佛走进一幅天然画卷。</p>
+            </div>
+          </div>
+          <div class="intro-card">
+            <img src="https://picsum.photos/id/1040/300/200" alt="风景介绍1">
+            <div class="intro-text">
+              <h2>高山流水</h2>
+              <p>群山连绵，溪水潺潺，仿佛走进一幅天然画卷。</p>
+            </div>
+          </div>
+          <div class="intro-card">
+            <img src="https://picsum.photos/id/1040/300/200" alt="风景介绍1">
+            <div class="intro-text">
+              <h2>高山流水</h2>
+              <p>群山连绵，溪水潺潺，仿佛走进一幅天然画卷。</p>
+            </div>
+          </div>
+          
+        <div class="intro-card">
+          <img src="https://picsum.photos/id/1056/300/200" alt="风景介绍2">
+          <div class="intro-text">
+            <h2>湖光山色</h2>
+            <p>宁静湖泊倒映着山峦，是放松身心的理想之地。</p>
+          </div>
+        </div>
+        <div class="intro-card">
+          <img src="https://picsum.photos/id/1069/300/200" alt="风景介绍3">
+          <div class="intro-text">
+            <h2>日出云海</h2>
+            <p>旭日东升，云雾翻腾，光与影交织的震撼之美。</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- 地图页面 -->
+
+    <div id="map" class="page">
+       <!-- 侧边栏  -->  
+    <div class="control-knob" onclick="toggleSidebar()"></div>
+    <div class="knob-icon">⚙️</div>
+  </div>
+  <div class="glass-sidebar">
+    <div class="sidebar-menu">
+      <a href="#" class="menu-item">
+        <span class="menu-icon">🗺️</span>
+        <span class="menu-text">行程规划</span>
+      </a>
+      <a href="#" class="menu-item">
+        <span class="menu-icon">💬</span>
+        <span class="menu-text">互动广场</span>
+      </a>
+      <a href="#" class="menu-item">
+        <span class="menu-icon">🚶</span>
+        <span class="menu-text">拥挤区域</span>
+      </a>
+      <a href="#" class="menu-item">
+        <span class="menu-icon">📍</span>
+        <span class="menu-text">地点打卡</span>
+      </a>
+      <a href="#" class="menu-item">
+        <span class="menu-icon">📚</span>
+        <span class="menu-text">文化知识库</span>
+      </a>
+    </div>
+  </div>
+
+      
+      <div id="viewDiv"></div>
+      <!-- ✅ 固定悬浮按钮 -->
+  <button id="toggleNavBtn" class="nav-toggle-btn">全屏</button>
+    </div>
+
+
+
+    <div id="comment" class="page">
+      <h2>📝 攻略分享 / 评论</h2>
+      <p>欢迎写下你的游玩经验~</p>
+      <!-- Note to self: Fix id and class names-->
+    </div>
+
+
+
+     <!-- 登录弹窗模态框 -->
+<div class="modal-overlay" id="loginOverlay" onclick="closeLogin()"></div>
+
+<div class="login-modal" id="loginModal">
+  <span class="close-btn" onclick="closeLogin()">×</span>
+
+  <h2>用户登录</h2>
+
+  <!-- 上传头像 -->
+  <input type="file" id="avatarUpload" accept="image/*" onchange="previewAvatar()" />
+  <img id="avatarPreview" src="" style="display:none; width: 60px; height: 60px; border-radius: 50%; margin: 10px auto;" />
+
+  <input type="text" id="username" placeholder="用户名">
+  <input type="password" id="password" placeholder="密码">
+  <button onclick="login()">登录</button>
+
+  <div class="links">
+    <a href="#">忘记密码？</a> |
+    <a  href="#" onclick="showRegister()">注册新账号</a>
+  </div>
+</div>
+<div class="modal-overlay" id="registerOverlay" onclick="closeRegister()"></div>
+<div class="login-modal" id="registerModal">
+  <span class="close-btn" onclick="closeRegister()">×</span>
+  <h2>用户注册</h2>
+
+  <input type="file" id="registerAvatarUpload" accept="image/*" onchange="previewRegisterAvatar()" />
+  <img id="registerAvatarPreview" style="display:none; width: 60px; height: 60px; border-radius: 50%; margin: 10px auto;" />
+
+  <input type="text" id="registerUsername" placeholder="用户名">
+  <input type="password" id="registerPassword" placeholder="密码">
+  <button onclick="register()">注册</button>
+  <div class="links">
+    <a href="#" onclick="showLogin()">已有账号？去登录</a>
+  </div>
+</div>
+
+
+
+  
+  <!-- JS 控制 -->
+  <script src="./src/js/1.js"></script>
+  <script src="https://js.arcgis.com/4.29/"></script>
+  <script src="../yizirui/src/js/3.js"></script>
+
+
+</body>
+</html>
